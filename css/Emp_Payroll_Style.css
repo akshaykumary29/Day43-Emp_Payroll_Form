@@ -46,7 +46,7 @@ body {
 
 .form-content {
     min-height: calc(100% - 80px);
-    background-color: f7f7f7;
+    background-color: #f7f7f7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,11 +97,12 @@ label {
 }
 
 .input {
+    font-family: Roboto;
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    resize:inherit ;
+    resize: vertical;
 }
 
 .profile-radio-content {
@@ -132,7 +133,7 @@ select {
     background-color: transparent;
 }
 
-buttonParent {
+.buttonParent {
     display: flex;
     margin-top: 10px;
     justify-content: space-between;
@@ -145,53 +146,60 @@ buttonParent {
     letter-spacing: 0px;
     color: #42515f;
     opacity: 1;
-    background: transparent;
-    border: 1px solid #969696;
-    border-radius: 5px;
+    background: #f5f5f5;
+    border: 1px solid #707070;
     font-weight: 400;
     min-width: 140px;
     padding: 7px 7px;
-    border: 1px solid #707070;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 .submitButton {
     margin-right: 30px;
 }
 
+.submitButton:hover {
+    background: #39ac1ad7;
+    color: #faf9f9e3;
+    font-weight: 300;
+    border: 2px solid #2bd625;
+}
+
+.resetButton:hover {
+    background: #0000008e;
+    color: #faf9f9e3;
+    font-weight: 300;
+    border: 2px solid #e4e4e4;
+}
+
 .cancelButton {
-    text-decoration: node;
+    text-decoration: none;
     text-align: center;
 }
 
-.resetButton {
-    margin-right: 10px;
+.cancelButton:hover {
+    background: #b62c25;
+    color: #faf9f9e3;
+    font-weight: 300;
+    border: 2px solid #ff3737;
 }
 
-@media only screen and (max-width:600px) {
-    .form {
-        margin-top: 10px;
-    }
-    .submit-reset {
-        width: 100%;
-        display: flex;
-        flex-grow: 1;
-        flex-direction: row-reverse;
-        justify-content: space-between
-    }
-    .cancelButton {
-        margin-left: 0px;
-    }
-    .form {
-        width: 85%;
-        padding: 44ox 20px;
-    }
-    .profile-lable {
-        margin-left: 0px;
-    }
+error-output {
+    margin-left: 2px;
+    font-size: 14px;
+    font-style: italic;
+    color: red;
 }
 
-@media only screen and (max-width: 960px) {
+valid-message {
+    font-size: 14px;
+    color: green;
+    margin-left: 4px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 960px) and (min-width: 600px) {
     .cancelButton {
         margin-left: 0px;
     }
@@ -201,21 +209,31 @@ buttonParent {
     }
 }
 
-a.button:hover {
-    background: grey;
-    color: white;
-}
-
-.submitButton:hover {
-    background-color: #82A70C;
-    color: white;
-}
-
-.resetButton:hover {
-    background: grey;
-    color: white;
-}
-
-.department {
-    margin-left: 30px;
+@media only screen and (max-width: 600px) {
+    .form {
+        margin-top: 10px;
+    }
+    .row-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-radio-content {
+        flex-flow: wrap;
+    }
+    .submit-reset {
+        width: 100%;
+        display: flex;
+        flex-grow: 1;
+        flex-flow: wrap;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .submitButton {
+        margin: 0;
+    }
+    .buttonParent {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
 }
