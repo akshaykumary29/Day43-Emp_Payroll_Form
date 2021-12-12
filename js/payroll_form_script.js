@@ -172,3 +172,41 @@ function updateLocalStorage(employeePayrollData) {
     alert("Local Storage Updated Successfully!!\nTotal Employee : " + employeePayrollList.length);
     localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
 }
+
+const resetForm = () => {
+    setDefaultValue("#name", "");
+    setDefaultText(".name-error");
+    setDefaultText(".valid-name");
+    unsetSelectedValues("[name=profile]");
+    unsetSelectedValues("[name=gender]");
+    unsetSelectedValues("[name=department]");
+    resetRange("#salary", ".salary-output");
+    setDefaultValue("#day", "1");
+    setDefaultValue("#month", "January");
+    setDefaultValue("#year", "2020");
+    setDefautlText(".startDate-error");
+    setDefautlText(".valid-startDate");
+    setDefaultValue("#notes", "");
+};
+
+const setDefaultValue = (propertyId, value) => {
+    const element = document.querySelector(propertyId);
+    element.value = value;
+};
+
+const unsetSelectedValues = (propertyName) => {
+    allValues = document.querySelectorAll(propertyName);
+    allValues.forEach(input => input.checked == false);
+};
+
+const resetRange = (propertyId, outputId) => {
+    const rangeElement = document.querySelector(propertyId);
+    rangeElement.value = 400000;
+    const outputElement = document.querySelector(outputId);
+    outputElement.textContent = rangeElement.value;
+};
+
+const setDefautlText = (propertyId) => {
+    const contentElement = document.querySelector(propertyId);
+    contentElement.textContent = "";
+};
