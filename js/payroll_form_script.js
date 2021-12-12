@@ -161,3 +161,14 @@ const getValue = (propertyId) => {
     let value = document.querySelector(propertyId).value;
     return value;
 };
+
+function updateLocalStorage(employeePayrollData) {
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if (employeePayrollList != undefined) {
+        employeePayrollList.push(EmployeePayrollData);
+    } else {
+        employeePayrollList = [EmployeePayrollData];
+    }
+    alert("Local Storage Updated Successfully!!\nTotal Employee : " + employeePayrollList.length);
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
+}
